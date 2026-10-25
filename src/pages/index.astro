@@ -1,11 +1,98 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import FacebookIcon from '../assets/facebook.svg';
+import InstagramIcon from '../assets/instagram.svg';
+import EnvelopeIcon from '../assets/envelope.svg';
 ---
 
 <Layout>
-	<Welcome />
+	<section class="banner">
+		<div class="container">
+			<div class="banner__info">
+				<h1 class="banner__title">Educación <span>virtual y presencial</span>, a tu ritmo.</h1>
+				<p class="banner_para">Bachillerato Semipresencial, Técnicas Laborales y cursos.</p>
+				<div class="banner_buttons">
+					<a class="banner__button_start" href="#">Empezar</a>
+					<a href="#" class="social__button">
+						<img src={FacebookIcon.src} alt="Facebook icono">
+					</a>
+					<a href="#" class="social__button">
+						<img src={InstagramIcon.src} alt="Facebook icono">
+					</a>
+					<a href="#" class="social__button">
+						<img src={EnvelopeIcon.src} alt="Facebook icono">
+					</a>
+				</div>
+				<p class="banner__conv">Escuela superior de estudio en convenio con politécnico San Marcos.</p>
+			</div>
+		</div>
+	</section>
+	
 </Layout>
+
+<style>
+	.banner {
+		position: relative;
+		min-height: 75vh;
+		width: 100%;
+		background-color: var(--second-color-bg);
+		color: rgb(224, 224, 224);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background-image: url("../assets/banner_image.png");
+		background-repeat: no-repeat;
+		background-position: right;
+		padding-bottom: 2em;
+	}
+
+	.banner__info {
+		width: 50%;
+	}
+
+	.banner__title {
+		font-size: 5vw;
+		margin-bottom: 0.1em;
+	}
+
+	.banner__title span {
+		color: var(--second-color);
+	}
+
+	.banner_para {
+		margin-bottom: 1.5em;
+		font-size: 1.2em;
+		width: 90%;
+	}
+
+	.banner__button_start {
+		color: white;
+		font-weight: 500;
+		border: 1px solid white;
+		padding: 0.5em 1em;
+		border-radius: 5px;
+		transition: all 0.2s;
+	}
+
+	.banner__button_start:hover {
+		background-color: white;
+		color: var(--second-color-bg);
+	}
+
+	.banner__conv {
+		margin-top: 2em;
+		color: var(--second-color);
+	}
+
+	.banner_buttons {
+		display: flex;
+		align-items: center;
+		gap: 1em;
+	}
+
+	.social__button  img{
+		filter: invert();
+		padding: 5px;
+		width: 30px;
+	}
+</style>
