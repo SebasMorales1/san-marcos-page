@@ -1,0 +1,50 @@
+---
+import Temp from "../../../assets/temporal-video.jpg";
+---
+
+<section class="container proposal">
+  <p class="proposal__para">Accede a educación privada y certificada, adaptada a tu horario y necesidades</p>
+  <h2 class="proposal__title">Estudia Sin Límites</h2>
+  <figure class="proposal__video_container">
+    <img src={Temp.src} alt="temp">
+  </figure>
+</section>
+
+<style>
+  .proposal__para {
+    font-size: 2.5em;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.2em;
+  }
+
+  .proposal__title {
+    color: var(--second-color-bg);
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .proposal__video_container {
+    width: 70%;
+    margin: 0 auto 5em;
+  }
+
+  .proposal__video_container img {
+    width: 100%;
+  }
+
+  @media (max-width: 640px) {
+    .proposal__title {
+      font-size: 3em;
+    }
+
+    .proposal__para {
+      font-size: 1.5em;
+    }
+
+    .proposal__video_container {
+      width: 100%;
+    }
+  }
+</style>

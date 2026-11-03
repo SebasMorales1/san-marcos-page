@@ -4,6 +4,9 @@ import FacebookIcon from '../assets/facebook.svg';
 import InstagramIcon from '../assets/instagram.svg';
 import EnvelopeIcon from '../assets/envelope.svg';
 import BannerImage from '../assets/banner_image.png';
+import CertificateIcon from "../assets/certificate.svg";
+import BuildingIcon from "../assets/building.svg";
+import ProposalSection from "../components/sections/index/Proposal.astro";
 ---
 
 <Layout>
@@ -30,6 +33,39 @@ import BannerImage from '../assets/banner_image.png';
 		</div>
 	</section>
 	
+	<div class="container banner__data">
+		<article class="banner__card">
+			<div class="banner__card-img">
+				<figure>
+					<img src={CertificateIcon.src} alt="Cerificate icon">
+				</figure>
+			</div>
+			<h3 class="banner__data-title">+ 20.000</h3>
+			<p class="banner__data-para">Estudiantes graduados</p>
+		</article>
+		<article class="banner__card">
+			<div class="banner__card-img">
+				<figure style="background-color: brown;">
+					<img src={BuildingIcon.src} alt="Cerificate icon">
+				</figure>
+			</div>
+			<h3 class="banner__data-title">+ 20.000</h3>
+			<p class="banner__data-para">Estudiantes graduados</p>
+		</article>
+		<article class="banner__card">
+			<div class="banner__card-img">
+				<figure style="background-color: #201543;">
+					<img src={CertificateIcon.src} alt="Cerificate icon">
+				</figure>
+			</div>
+			<h3 class="banner__data-title">+ 20.000</h3>
+			<p class="banner__data-para">Estudiantes graduados</p>
+		</article>
+	</div>
+
+	<main>
+		<ProposalSection />
+	</main>
 </Layout>
 
 <style>
@@ -53,7 +89,7 @@ import BannerImage from '../assets/banner_image.png';
 	}
 
 	.banner__title {
-		font-size: 5vw;
+		font-size: 4.2vw;
 		margin-bottom: 0.1em;
 	}
 
@@ -102,6 +138,56 @@ import BannerImage from '../assets/banner_image.png';
 		display: none;
 	}
 
+	.banner__data {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1em;
+		justify-content: flex-end;
+		transform: translateY(-40px);
+		margin-bottom: 5em;
+	}
+
+	.banner__card {
+		background-color: white;
+		min-width: 100px;
+		min-height: 120px;
+		padding: 1em 0.8em;
+		border-radius: 1em;
+		box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.171);
+	}
+
+	.banner__card-img {
+		display: flex;
+		justify-content: center;
+		margin: 1em;
+	}
+
+	.banner__card-img figure {
+		background-color: var(--second-color-bg);
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+		padding: 12px;
+	}
+
+	.banner__card-img img {
+		width: 100%;
+	}
+
+	.banner__data-title, .banner__data-para {
+		text-align: center;
+		margin-bottom: 0.5em;
+	}
+
+	.banner__data-title {
+		color: var(--second-color-bg);
+	}
+
+	.banner__data-para {
+		font-weight: 500;
+		color: var(--text-third-color);
+	}
+
 	@media (max-width: 880px) {
 		.banner {
 			background-image: none;
@@ -132,6 +218,10 @@ import BannerImage from '../assets/banner_image.png';
 		.banner__img {
 			display: block;
 			max-width: 100%;
+		}
+
+		.banner__data {
+			justify-content: center;
 		}
 	}
 </style>
