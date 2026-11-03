@@ -1,3 +1,7 @@
+---
+import MenuIcon from "../assets/menu.svg";
+---
+
 <!doctype html>
 <html lang="es">
 	<head>
@@ -12,15 +16,18 @@
 		<header class="header">
 			<div class="container header__elements">
 				<nav class="nav">
-				<a class="header__logo" href="#">LOGO</a>
+					<a class="header__logo" href="#">LOGO</a>
 
-				<ul class="nav__links">
-					<li><a class="header__links" href="#">Bachillerato</a></li>
-					<li><a class="header__links" href="#">Ténica laboral</a></li>
-					<li><a class="header__links" href="#">Cursos</a></li>
-					<li><a class="header__links" href="#">Sobre nosotros</a></li>
-					<li><a class="header__links" href="#">Testimonios</a></li>
-				</ul>
+					<ul class="nav__links">
+						<li><a class="header__links" href="#">Bachillerato</a></li>
+						<li><a class="header__links" href="#">Ténica laboral</a></li>
+						<li><a class="header__links" href="#">Cursos</a></li>
+						<li><a class="header__links" href="#">Sobre nosotros</a></li>
+						<li><a class="header__links" href="#">Testimonios</a></li>
+					</ul>
+					<button id="menu">
+						<img src={MenuIcon.src} alt="icono de lista">
+					</button>
 				</nav>
 			</div>
 		</header>
@@ -32,6 +39,29 @@
 		</footer>
 	</body>
 </html>
+
+<script>
+	const menuBtn = document.getElementById("menu");
+	const nav = document.getElementsByClassName("nav__links")[0];
+
+	const handleBodyClick = (e: PointerEvent) => {
+		if (e.target !== nav && e.target !== menuBtn?.firstChild) {
+			nav.classList.remove("nav__links-active");
+		}
+	}
+
+	menuBtn?.addEventListener("click", _ => {
+		nav.classList.toggle("nav__links-active");
+
+		if (nav.classList.contains("nav__links-active")) {
+			document.addEventListener("click", handleBodyClick);
+		}
+		else {
+			document.removeEventListener("click", handleBodyClick);
+		}
+	});
+
+</script>
 
 <style is:global>
 	@import url('https://fonts.googleapis.com/css2?family=Clarity+City:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -131,5 +161,43 @@
 
 	.content {
 		min-height: 100vh;
+	}
+
+	#menu {
+		border: none;
+		background: none;
+		display: none;
+	}
+
+	#menu img {
+		width: 25px;
+	}
+
+	@media (max-width: 890px) {
+		.header {
+			
+		}
+
+		.nav__links {
+			position: fixed;
+			flex-direction: column;
+			z-index: 50;
+			background-color: white;
+			right: -100%;
+			width: 80%;
+			top: 55px;
+			height: 100%;
+			align-items: center;
+			gap: 2em;
+			transition: right 0.3s;
+		}
+
+		.nav__links-active {
+			right: 0;
+		}
+
+		#menu {
+			display: block;
+		}
 	}
 </style>
